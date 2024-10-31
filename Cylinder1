@@ -1,0 +1,36 @@
+"""Volume and area of cylinder, with exceptions.
+This is the starter version, without exceptions.
+The functions return a negative value if the height is negative.
+By Alyousef Soliman 100883692
+TPRG 2131 Fall 2024 Test 1
+This program is strictly my own work. Any material
+beyond course learning materials that is taken from
+the Web or other sources is properly cited, giving
+credit to the original author(s).
+"""
+
+from math import pi
+
+def volume_cylinder(diameter, height):
+    """Volume of a cylinder given diameter and height."""
+    if(diameter <= 0.0 or height <= 0.0):
+        raise ValueError("Values must be greater than zero!")
+    return pi * (diameter / 2.0)**2 * height
+
+def area_cylinder(diameter, height):
+    """Surface area of a cylinder given diameter and height."""
+    if(diameter <= 0.0 or height <= 0.0):
+        raise ValueError("Values must be greater than zero!")
+    radius = diameter / 2.0
+    return 2.0 * pi * radius * (height + radius)  # simplified
+
+if __name__ == "__main__":
+    try:
+        while True:
+            dia = float(input("\nDiameter? "))
+            high = float(input("Height? "))
+            print("The volume is", volume_cylinder(dia, high))
+            print("The area is", area_cylinder(dia, high))
+            
+    except KeyboardInterrupt: # This line of code was sourced from geeksforgeeks "How To Catch A Keyboardinterrupt in Python"
+        print("Goodbye")
